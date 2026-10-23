@@ -1,0 +1,10 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Kompilerade Java-filer
+out/
+*.class
+
+# macOS
+.DS_Store
