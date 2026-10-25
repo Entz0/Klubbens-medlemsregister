@@ -22,4 +22,13 @@ public class Register {
         }
     }
 
+    public Medlem findMedlem(String namn){
+        for (Medlem medlem : medlemmar) {
+            if (medlem.getNamn().equalsIgnoreCase(namn)) {
+                return medlem;
+            }
+        }
+        return null;
+    }
+
 }
