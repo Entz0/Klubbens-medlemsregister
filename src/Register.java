@@ -10,4 +10,16 @@ public class Register {
         medlemmar.add(medlem);
     }
 
+    public void printAllMedlems(){
+        if (medlemmar.isEmpty()) {
+            System.out.println("Medlemmar saknas");
+            return;
+        }
+        System.out.println("Alla medlemmar: ");
+
+        for(Medlem medlem : medlemmar){
+            System.out.println("Medlem: " + medlem.getNamn() + " | ID: " + medlem.getMedlemsnummer());
+        }
+    }
+
 }
