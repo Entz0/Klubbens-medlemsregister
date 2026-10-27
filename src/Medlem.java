@@ -14,4 +14,9 @@ public class Medlem {
     public int getMedlemsnummer() {
         return medlemsnummer;
     }
+
+    @Override
+    public String toString() {
+        return "Medlem: " + getNamn() + " | ID: " + getMedlemsnummer();
+    }
 }
