@@ -10,6 +10,11 @@ public class Register {
         medlemmar.add(medlem);
     }
 
+    public void addPremiumMedlem(String namn, int medlemsnummer){
+        PremiumMedlem pMedlem = new PremiumMedlem(namn, medlemsnummer);
+        medlemmar.add(pMedlem);
+    }
+
     public void printAllMedlems(){
         if (medlemmar.isEmpty()) {
             System.out.println("Medlemmar saknas");
@@ -18,7 +23,7 @@ public class Register {
         System.out.println("Alla medlemmar: ");
 
         for(Medlem medlem : medlemmar){
-            System.out.println("Medlem: " + medlem.getNamn() + " | ID: " + medlem.getMedlemsnummer());
+            System.out.println(medlem.toString());
         }
     }
 
