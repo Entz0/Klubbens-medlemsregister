@@ -11,9 +11,10 @@ public class Main {
         while (kor) {
             System.out.println();
             System.out.println("1. Lägg till medlem");
-            System.out.println("2. Lista alla medlemmar");
-            System.out.println("3. Sök medlem");
-            System.out.println("4. Avsluta");
+            System.out.println("2. Lägg till PREMIUM-medlem");
+            System.out.println("3. Lista alla medlemmar");
+            System.out.println("4. Sök medlem");
+            System.out.println("5. Avsluta");
             System.out.print("Välj ett alternativ: ");
 
             if (!scanner.hasNextInt()) {
@@ -43,9 +44,23 @@ public class Main {
                         scanner.nextLine();
                     }
                 }
-                case 2 -> register.printAllMedlems();
+                case 2 -> {
+                    System.out.print("Namn (Premium): ");
+                    String namn = scanner.nextLine();
+                    System.out.print("Medlemsnummer: ");
+                    if (scanner.hasNextInt()) {
+                        int nummer = scanner.nextInt();
+                        scanner.nextLine();
+                        register.addPremiumMedlem(namn, nummer);
+                        System.out.println("Premium-medlemmen har lagts till.");
+                    } else {
+                        System.out.println("Medlemsnumret måste vara ett heltal.");
+                        scanner.nextLine();
+                    }
+                }
+                case 3 -> register.printAllMedlems();
 
-                case 3 -> {
+                case 4 -> {
                     System.out.print("Sök namn: ");
                     String namn = scanner.nextLine();
 
@@ -60,7 +75,7 @@ public class Main {
                         System.out.println("Medlemmen saknas");
                     }
                 }
-                case 4 -> {
+                case 5 -> {
                     System.out.println("Programmet avslutas.");
                     kor = false;
                 }
