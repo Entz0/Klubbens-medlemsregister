@@ -31,4 +31,14 @@ public class Register {
         return null;
     }
 
+    public boolean removeMedlem(int medlemsnummer){
+        for (Medlem medlem : medlemmar) {
+            if (medlem.getMedlemsnummer() == medlemsnummer) {
+                medlemmar.remove(medlem);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
