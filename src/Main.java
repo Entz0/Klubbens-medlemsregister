@@ -37,8 +37,7 @@ public class Main {
                         int nummer = scanner.nextInt();
                         scanner.nextLine();
 
-                        register.addMedlem(namn, nummer);
-                        System.out.println("Medlemmen har lagts till.");
+                        System.out.println(register.addMedlem(namn, nummer));
                     } else {
                         System.out.println("Medlemsnumret måste vara ett heltal.");
                         scanner.nextLine();
