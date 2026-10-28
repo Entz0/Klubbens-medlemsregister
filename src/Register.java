@@ -19,6 +19,12 @@ public class Register {
             return "Medlemsnummer måste vara positivt";
         }
 
+        for(Medlem m : medlemmar){
+            if (m.getMedlemsnummer() == medlemsnummer){
+                return "Medlemsnumret finns redan!";
+            }
+        }
+
         Medlem medlem = new Medlem(namn, medlemsnummer);
         medlemmar.add(medlem);
         return "Medlem har lagts till";
