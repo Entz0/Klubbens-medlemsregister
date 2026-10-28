@@ -7,33 +7,27 @@ public class Register {
 
     public String addMedlem(String namn, int medlemsnummer){
 
-        if (namn.isBlank()) {
-            return "Medlem kan inte vara tomt!";
-        }
+        String error = validateMedlem(namn, medlemsnummer);
 
-        if (namn.trim().matches("[0-9]+")) {
-            return "Namnet får inte bara innehålla siffror!";
-        }
-
-        if(medlemsnummer <= 0){
-            return "Medlemsnummer måste vara positivt";
-        }
-
-        for(Medlem m : medlemmar){
-            if (m.getMedlemsnummer() == medlemsnummer){
-                return "Medlemsnumret finns redan!";
-            }
+        if (error != null) {
+            return error;
         }
 
         Medlem medlem = new Medlem(namn, medlemsnummer);
         medlemmar.add(medlem);
         return "Medlem har lagts till";
-
     }
 
-    public void addPremiumMedlem(String namn, int medlemsnummer){
+    public String addPremiumMedlem(String namn, int medlemsnummer){
+        String error = validateMedlem(namn, medlemsnummer);
+
+        if (error != null) {
+            return error;
+        }
+
         PremiumMedlem pMedlem = new PremiumMedlem(namn, medlemsnummer);
         medlemmar.add(pMedlem);
+        return "Premium-medlemmen har lagts till";
     }
 
     public void printAllMedlems(){
@@ -65,6 +59,27 @@ public class Register {
             }
         }
         return false;
+    }
+
+    private String validateMedlem(String namn, int medlemsnummer){
+        if (namn.isBlank()) {
+            return "Medlem kan inte vara tomt!";
+        }
+
+        if (namn.trim().matches("[0-9]+")) {
+            return "Namnet får inte bara innehålla siffror!";
+        }
+
+        if(medlemsnummer <= 0){
+            return "Medlemsnummer måste vara positivt";
+        }
+
+        for(Medlem m : medlemmar){
+            if (m.getMedlemsnummer() == medlemsnummer){
+                return "Medlemsnumret finns redan!";
+            }
+        }
+        return null;
     }
 
 }
