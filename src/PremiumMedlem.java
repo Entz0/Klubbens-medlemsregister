@@ -6,6 +6,6 @@ public class PremiumMedlem extends Medlem {
 
     @Override
     public String toString() {
-        return "[PREMUIM] Namn: " +getNamn() + " | ID: " + getMedlemsnummer();
+        return "[PREMIUM] Namn: " +getNamn() + " | ID: " + getMedlemsnummer();
     }
 }
