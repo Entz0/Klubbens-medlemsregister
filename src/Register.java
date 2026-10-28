@@ -5,9 +5,30 @@ public class Register {
 
     private List<Medlem> medlemmar = new ArrayList<>();
 
-    public void addMedlem(String namn, int medlemsnummer){
+    public String addMedlem(String namn, int medlemsnummer){
+
+        if (namn.isBlank()) {
+            return "Medlem kan inte vara tomt!";
+        }
+
+        if (namn.trim().matches("[0-9]+")) {
+            return "Namnet får inte bara innehålla siffror!";
+        }
+
+        if(medlemsnummer <= 0){
+            return "Medlemsnummer måste vara positivt";
+        }
+
+        for(Medlem m : medlemmar){
+            if (m.getMedlemsnummer() == medlemsnummer){
+                return "Medlemsnumret finns redan!";
+            }
+        }
+
         Medlem medlem = new Medlem(namn, medlemsnummer);
         medlemmar.add(medlem);
+        return "Medlem har lagts till";
+
     }
 
     public void addPremiumMedlem(String namn, int medlemsnummer){
