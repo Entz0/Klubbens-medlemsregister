@@ -17,6 +17,6 @@ public class Medlem {
 
     @Override
     public String toString() {
-        return "Medlem: " + getNamn() + " | ID: " + getMedlemsnummer();
+        return "Namn: " + getNamn() + " | ID: " + getMedlemsnummer();
     }
 }

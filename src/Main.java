@@ -50,8 +50,7 @@ public class Main {
                     if (scanner.hasNextInt()) {
                         int nummer = scanner.nextInt();
                         scanner.nextLine();
-                        register.addPremiumMedlem(namn, nummer);
-                        System.out.println("Premium-medlemmen har lagts till.");
+                        System.out.println(register.addPremiumMedlem(namn, nummer));
                     } else {
                         System.out.println("Medlemsnumret måste vara ett heltal.");
                         scanner.nextLine();
