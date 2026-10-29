@@ -14,7 +14,8 @@ public class Main {
             System.out.println("2. Lägg till PREMIUM-medlem");
             System.out.println("3. Lista alla medlemmar");
             System.out.println("4. Sök medlem");
-            System.out.println("5. Avsluta");
+            System.out.println("5. Ta bort medlem");
+            System.out.println("6. Avsluta");
             System.out.print("Välj ett alternativ: ");
 
             if (!scanner.hasNextInt()) {
@@ -73,7 +74,26 @@ public class Main {
                         System.out.println("Medlemmen saknas");
                     }
                 }
+
                 case 5 -> {
+                    System.out.println("Ange medlemsnumret för den medlem du vill ta bort:");
+
+                    if (scanner.hasNextInt()) {
+                        int nummer = scanner.nextInt();
+                        scanner.nextLine();
+                        boolean removed = register.removeMedlem(nummer);
+                        if (removed) {
+                            System.out.println("Medlemmen har tagits bort!");
+                        } else {
+                            System.out.println("Medlemmen hittades inte!");
+                        }
+                    } else {
+                        System.out.println("Medlemsnumret måste vara ett heltal");
+                        scanner.nextLine();
+                    }
+                }
+
+                case 6 -> {
                     System.out.println("Programmet avslutas.");
                     kor = false;
                 }
